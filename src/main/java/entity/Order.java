@@ -1,6 +1,6 @@
 package entity;
 
-import service.ProductFactory;
+import factory.ProductFactory;
 
 public class Order {
     private final DeliveryType type;
@@ -11,12 +11,8 @@ public class Order {
         this.product = ProductFactory.create(name);
     }
 
-    private int getDeliveryTime(){
-        return switch (type) {
-            case STANDARD -> 5;
-            case EXPRESS -> 2;
-            case PICKUP -> 0;
-        };
+    public int getDeliveryTime() {
+        return type.getDeliveryTime();
     }
 
     @Override
