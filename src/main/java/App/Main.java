@@ -1,9 +1,9 @@
-package eshop.app;
+package App;
 
-import eshop.entity.DeliveryType;
-import eshop.entity.Order;
-import eshop.entity.ProductName;
-import eshop.service.OrderService;
+import entity.DeliveryType;
+import entity.Order;
+import entity.ProductName;
+import service.OrderService;
 
 import java.util.ArrayList;
 import java.util.List;

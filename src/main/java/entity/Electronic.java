@@ -1,4 +1,4 @@
-package eshop.entity;
+package entity;
 
 public class Electronic implements Product {
     @Override

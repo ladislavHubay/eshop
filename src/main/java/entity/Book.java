@@ -1,4 +1,4 @@
-package eshop.entity;
+package entity;
 
 public class Book implements Product {
     @Override

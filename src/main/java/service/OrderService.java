@@ -1,6 +1,6 @@
-package eshop.service;
+package service;
 
-import eshop.entity.Order;
+import entity.Order;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class OrderService {
 
     public void output() {
         for (Order order : list) {
-            System.out.println(order.toString());
+            System.out.println(order);
         }
     }
 }

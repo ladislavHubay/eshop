@@ -1,38 +1,29 @@
-package eshop.entity;
+package entity;
+
+import service.ProductFactory;
 
 public class Order {
     private final DeliveryType type;
-    private final ProductName name;
-    private int deliveryTime;
+    private final Product product;
 
     public Order(ProductName name, DeliveryType type) {
-        this.name = name;
         this.type = type;
-        calculateDeliveryTime();
-        factory();
+        this.product = ProductFactory.create(name);
     }
 
-    private void calculateDeliveryTime(){
-        switch (type) {
-            case STANDARD -> deliveryTime = 5;
-            case EXPRESS -> deliveryTime = 2;
-            case PICKUP -> deliveryTime = 0;
-        }
-    }
-
-    private void factory(){
-        switch (name) {
-            case BOOK -> new Book();
-            case ELECTRONIC -> new Electronic();
-            case CLOTHING -> new Clothing();
-        }
+    private int getDeliveryTime(){
+        return switch (type) {
+            case STANDARD -> 5;
+            case EXPRESS -> 2;
+            case PICKUP -> 0;
+        };
     }
 
     @Override
     public String toString() {
-        return "Product: " + name +
+        return "Product: " + product.getName() +
                 ", Delivery: " + type +
-                ", Delivery time: " + deliveryTime +
+                ", Delivery time: " + getDeliveryTime() +
                 " days";
     }
 }
